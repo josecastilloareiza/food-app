@@ -4,10 +4,12 @@
   "description": "Mentoring project - Factory Pattern",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run lint && npm run build",
+    "test": "jest --config jestconfig.json",
+    "start": "npm run format  && npm run lint && npm run build && npm run output",
     "lint": "eslint . --ext .ts",
-"build": "tsc"
+    "format": "prettier --write \"src/**/*.ts\"",
+    "build": "tsc",
+    "output": "node build/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,12 @@
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
     "eslint": "^7.4.0",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.1.2",
     "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "@types/jest": "^26.0.4"
   }
 }
